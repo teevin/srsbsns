@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+ {{ parent() }}
+{% endblock stylesheets %}
+{% block body %}
+  <section class="container">
+    <article class="">
+    <h1 class="form-title text-center">Contact Us</h1>
+    <div class="row contact-us-form flex">
+      <aside class="col-6">
+        {% for message in app.flashes('error') %}
+            <div class="flash-notice alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {{ form_start(form) }}
+          {{ form_errors(form) }}
+          {{ form_row(form.firstName) }}
+          {{ form_row(form.lastName) }}
+          {{ form_row(form.emailAddress) }}
+          {{ form_row(form.message) }}
+          <div class="g-recaptcha" data-sitekey="6LfJPsEUAAAAACIyIOSxjgQ1M7YtXbupB9wdLCww"></div>
+          {{ form_row(form.save, { 'label': 'Submit' }) }}
+        {{ form_end(form) }}
+      </aside>
+    </div>
+    </article>
+  </section>
+{% endblock %}

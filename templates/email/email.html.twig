@@ -1,0 +1,22 @@
+{% apply inline_css %}
+<style>
+   h1 {
+       color: #333;
+   }
+   .body {
+     padding: .5rem;
+     box-shadow: 2px 2px 5px rgba(0,0,0,0.03);
+     border-radius: 4px;
+     color: #84613D;
+     font-family: "Lucida Console", Monaco, monospace;
+     background: #FDF9EA;
+     border-bottom: 1px solid #F9F2D6;
+     border-right: 1px solid #F9F2D6;
+   }
+</style>
+<h1>Thank you {{ firstName }} {{ lastName }}!</h1>
+
+<p>
+  {{ message }}
+</p>
+{% endapply %}
